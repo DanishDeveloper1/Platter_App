@@ -153,4 +153,4 @@ npm run dev    # starts the app on http://localhost:5173
 
 ## Author
 
-**Md Danish**: [GitHub](https://github.com/DanishDeveloper1)
+Md Danish - [GitHub](https://github.com/DanishDeveloper1) | [LinkedIn](https://www.linkedin.com/in/danishdeveloper)
