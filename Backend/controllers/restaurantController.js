@@ -76,15 +76,18 @@ export const getRestaurantMenu = async (req, res) => {
 };
 
 // GET /api/restaurants/home?city=Pune
-// Extra data for the home page: total dish count and the popular dishes in a city
+// Extra data for the home page: dish count and the popular dishes in a city
 export const getHomeExtras = async (req, res) => {
   try {
     const { city } = req.query;
-    const dishCount = await MenuItem.countDocuments();
 
+    let dishCount = 0;
     let popularDishes = [];
+
     if (city) {
       const ids = await Restaurant.distinct("_id", { city });
+      dishCount = await MenuItem.countDocuments({ restaurant: { $in: ids } });
+
       const dishes = await MenuItem.find({ restaurant: { $in: ids } })
         .sort({ price: -1 })
         .populate("restaurant", "name city rating");
@@ -99,6 +102,8 @@ export const getHomeExtras = async (req, res) => {
           return perRestaurant[key] <= 2;
         })
         .slice(0, 8);
+    } else {
+      dishCount = await MenuItem.countDocuments();
     }
 
     res.json({ dishCount, popularDishes });
@@ -107,5 +112,3 @@ export const getHomeExtras = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-
-

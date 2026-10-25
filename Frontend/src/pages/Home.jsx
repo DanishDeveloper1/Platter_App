@@ -108,7 +108,7 @@ export default function Home() {
       <section className="anim-fade-up relative mt-6 overflow-hidden rounded-[32px] bg-gradient-to-br from-primary via-[#ff6a55] to-[#ff9a76] px-6 py-10 text-white shadow-xl shadow-primary/20 sm:px-12 sm:py-14">
         <div className="relative z-10 max-w-xl">
           <p className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-bold backdrop-blur">
-            <Icon name="bike" className="h-4 w-4" /> Delivering in {CITIES.length} cities
+            <Icon name="bike" className="h-4 w-4" /> {ready ? `${all.length} restaurants across ${CITIES.length} cities` : `Delivering in ${CITIES.length} cities`}
           </p>
           <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.1] sm:text-5xl">
             Hungry? Get great food from {city ? <span className="underline decoration-white/50 decoration-4 underline-offset-4">{city}</span> : "nearby"}.
@@ -125,7 +125,7 @@ export default function Home() {
             </button>
           </div>
           <dl className="mt-8 flex gap-8 text-sm">
-            <div><dt className="text-white/70">Restaurants</dt><dd className="font-display text-2xl font-extrabold">{ready ? all.length : "–"}</dd></div>
+            <div><dt className="text-white/70">Restaurants</dt><dd className="font-display text-2xl font-extrabold">{ready ? inCity.length : "–"}</dd></div>
             <div><dt className="text-white/70">Dishes</dt><dd className="font-display text-2xl font-extrabold">{extras?.dishCount ?? "–"}</dd></div>
             <div><dt className="text-white/70">Avg. delivery</dt><dd className="font-display text-2xl font-extrabold">{minutesAvg} min</dd></div>
           </dl>
