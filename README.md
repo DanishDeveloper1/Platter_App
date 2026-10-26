@@ -4,7 +4,9 @@ A full-stack food delivery app. Browse restaurants by city, search for dishes, b
 
 > Built as a portfolio project to practise the full path from UI to database: React frontend, Express API, MongoDB, and authentication.
 
-**Live demo:** coming soon
+**Live demo:** https://YOUR-VERCEL-ADDRESS
+
+*The backend runs on a free plan, so the first request after a quiet period can take up to a minute.*
 
 ## Screenshots
 
